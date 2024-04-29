@@ -25,7 +25,7 @@
             <tbody>
                 @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $categories->firstItem() + $loop->index }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->created_at->diffForHumans() }}</td>
                         <td>{{ $category->updated_at->diffForHumans() }}</td>
@@ -46,5 +46,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $categories->links() }}
     </div>
 @endsection

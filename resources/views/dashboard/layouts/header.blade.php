@@ -9,12 +9,27 @@
             </form>
             <ul class="navbar-nav ms-auto">
                 @auth
-                    <li class="dropdown-item">
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button type="submit" class="nav-link text-danger" aria-current="page" href="/">Logout <i
-                                    class="bi bi-box-arrow-right"></i></button type="submit">
-                        </form>
+                    <li class="nav-item dropdown ms-auto">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Welcome back, {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item">
+                                <a class="nav-link" aria-current="page" href="/">Home <i
+                                        class="bi bi-layout-text-sidebar-reverse"></i></a>
+                            </li>
+                            <li class="dropdown-item">
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="dropdown-item">
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="nav-link" aria-current="page" href="/">Logout <i
+                                            class="bi bi-box-arrow-right"></i></button type="submit">
+                                </form>
+                            </li>
+                        </ul>
                     </li>
                 @else
                     <li class="nav-item">

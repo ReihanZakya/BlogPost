@@ -32,15 +32,17 @@ Route::get('/', function () {
         "image" => "aku kessoku band.jpg"
     ]);
 });
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-        "active" => "about",
-        "name" => "Hitori Bocchi",
-        "email" => "bocchi@gmail.com",
-        "image" => "aku kessoku band.jpg"
-    ]);
-});
+
+// Route::get('/about', function () {
+//     return view('about', [
+//         "title" => "About",
+//         "active" => "about",
+//         "name" => "Hitori Bocchi",
+//         "email" => "bocchi@gmail.com",
+//         "image" => "aku kessoku band.jpg",
+//         'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(9)
+//     ]);
+// })->middleware('auth');
 
 Route::get('/posts',[PostController::class, 'index']);
 Route::get('posts/{post:slug}',[PostController::class, 'show']);
@@ -64,7 +66,9 @@ Route::get('/register',[RegisterController::class, 'index'])->middleware('guest'
 Route::post('/register',[RegisterController::class, 'store']);
 
 Route::get('/dashboard', function(){
-    return view ('dashboard.index');
+    return view ('dashboard.index',[
+        'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(9)
+    ]);
 })->middleware('auth');;
 
 

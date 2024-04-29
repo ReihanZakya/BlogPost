@@ -11,18 +11,18 @@
                     <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" aria-current="page"
                         href="/">Home</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ $active === 'about' ? 'active' : '' }}" href="/about">About</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ $active === 'posts' ? 'active' : '' }}" href="/posts">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ $active === 'categories' ? 'active' : '' }}" href="/categories">Categories</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ $active === 'products' ? 'active' : '' }}" href="/products">Products</a>
-                </li>
+                </li> --}}
             </ul>
 
             <ul class="navbar-nav ms-auto">
