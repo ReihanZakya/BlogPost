@@ -14,11 +14,14 @@
             <img src="img/aku kessoku band.jpg" class="img-thumbnail rounded-circle img-fluid" width="250" alt="">
         </div>
         <div>
-            <div class="">
+            <div class="fw-bold">
                 <h1>{{ auth()->user()->name }}</h1>
             </div>
             <div class="">
                 <h6>{{ auth()->user()->email }}</h6>
+            </div>
+            <div class="fst-italic">
+                <h6>Total my posts {{ $posts->count() }}</h6>
             </div>
         </div>
     </div>
@@ -61,7 +64,7 @@
                                 </p>
                             </small>
                             <p class="card-text">{{ $post->excerpt }}</p>
-                            <a href="/posts/{{ $post->slug }}" class="btn btn-dark rounded-0">Read More</a>
+                            <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-dark rounded-0">Read More</a>
                         </div>
 
                     </div>
