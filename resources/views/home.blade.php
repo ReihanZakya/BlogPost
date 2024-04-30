@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h1 class="mb-3 border-bottom border-2">Category</h1>
+                    <h1 class="mb-3 border-bottom border-2 colorlib-heading">Category</h1>
                     @foreach ($categories as $category)
                         <div class="mb-3">
                             <a class="text-decoration-none" href="/posts?category={{ $category->slug }}">
