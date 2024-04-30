@@ -27,9 +27,8 @@ Route::get('/', function () {
     return view('home', [
         "title" => 'Home',
         "active" => "home",
-        "name" => "Hitori Bocchi",
-        "email" => "bocchi@gmail.com",
-        "image" => "aku kessoku band.jpg"
+        "posts" => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(12)->withQueryString(),
+        'categories' => Category::all(),
     ]);
 });
 
